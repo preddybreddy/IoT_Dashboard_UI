@@ -41,7 +41,7 @@ class RoomDropdownComponent extends React.Component {
         }
         return (
             <div className="site-data">
-                <h5 className="site-name">Data for {this.props.responseObj.Site}</h5>
+                <h5 className="site-name">Data for {this.props.responseObj.site}</h5>
                 <div className="site-dropdown">
                     <label for="SiteID: ">Rooms: </label>
                     <select name="SiteID" id="SiteIdDropdown" onChange={this.handleSelectionEvent}>

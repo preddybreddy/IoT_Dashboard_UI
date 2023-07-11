@@ -6,6 +6,15 @@ class TableComponentListItem extends React.Component {
         super(props)
     }
 
+    roundToFiveDigits(x)
+    {
+        if (x.indexOf('.') !== -1)
+        {
+            let decimalPart= x.slice(x.indexOf('.') + 1) 
+            return (x.slice(0, x.indexOf('.')) + '.') + (decimalPart.length > 5 ? decimalPart.slice(0, 5) : decimalPart)
+        }
+        return x.slice(0, 5)
+    }
 
     render() {
         
@@ -30,7 +39,7 @@ class TableComponentListItem extends React.Component {
             }
             else
             {
-                return <td className="table-element">{x}</td>  
+                return <td className="table-element">{this.roundToFiveDigits(x)}</td>  
             }
         })
     }
