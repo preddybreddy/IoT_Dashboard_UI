@@ -11,13 +11,13 @@ class TableComponentListItem extends React.Component {
         
         const day = this.props.day
         const dataForDay = this.props.responseObj.data[day]
-        console.log(dataForDay)
+        //console.log(dataForDay)
         const sourceData = dataForDay[this.props.room]
-        console.log('Source data')
-        console.log(sourceData)
+        //console.log('Source data')
+        //console.log(sourceData)
         const headers = Object.keys(sourceData)
         let temp_arr = []
-        console.log(this.props.responseObj)
+        //console.log(this.props.responseObj)
         for (let prop = 0; prop < headers.length; prop++)
         {
             temp_arr.push(sourceData[headers[prop]])

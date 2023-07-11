@@ -34,20 +34,19 @@ class DateInputComponent extends React.Component {
     //Should I be calling the API from the DateInputComponent
     async handleSubmit(event)
     {
-        console.log(this.state.startDate)
-        console.log(this.state.endDate)
-        console.log(this.state.siteId)
+        // console.log(this.state.startDate)
+        // console.log(this.state.endDate)
+        // console.log(this.state.siteId)
         let dashboard_url = `https://localhost:7149/api/Dashboard/sitevalues?startDate=${this.state.startDate}&endDate=${this.state.endDate}&siteId=${this.state.siteId}`
         this.setState(prevState => prevState.loading = true)
         const raw_response = await fetch(dashboard_url)
         const json_response = await raw_response.json()
+        console.log(json_response)
         this.setState(prevState => prevState.responseObj = json_response)
         
         this.setState(prevState => prevState.populateRooms = true)
         this.setState(prevState => prevState.loading = false)
-        console.log(this.state.responseObj)
-        
-        console.log(this.state.populateRooms)
+
         event.preventDefault()
     }
 
@@ -69,7 +68,8 @@ class DateInputComponent extends React.Component {
             loadingComponent = null
         }
         return (
-            <div className="main-container">      
+            <div className="main-container container">      
+
                 <div className="input-group">
 
                     <label>Start Date: </label>

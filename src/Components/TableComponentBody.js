@@ -32,12 +32,12 @@ class TableComponentBody extends React.Component {
     }
     
     render() {
-        const numDays = this.differenceInDays(this.props.responseObj["startDate"], this.props.responseObj["endDate"])   
+        const numDays = this.differenceInDays(this.props.responseObj["StartDate"], this.props.responseObj["EndDate"])   
         console.log(numDays )
         let lists = []
         for (let day = 0; day < numDays; day++)
         {
-            lists.push(<tr><td className="single-date table-date">{this.addDay(this.props.responseObj["startDate"], day+1)}</td><TableComponentListItem responseObj={this.props.responseObj} day={day} room={this.props.room}/></tr>)
+            lists.push(<tr><td className="single-date table-date">{this.addDay(this.props.responseObj["StartDate"], day+1)}</td><TableComponentListItem responseObj={this.props.responseObj} day={day} room={this.props.room}/></tr>)
         }
         return <tbody>{lists}</tbody>
     }
