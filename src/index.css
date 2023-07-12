@@ -30,22 +30,52 @@ code {
 
 .input-site-outer {
   padding: 10px;
-  margin-left: 200px;
+
 }
 
 .input-date-outer {
+  display: inline-block;
+  position: relative;
   padding: 10px;
   margin-left: 10px;
+}
+.input-end-date {
+  position: relative;
+  left: 75px;
+}
+
+.input-site-outer {
+  display: inline-block;
+}
+
+.input-site {
+  position: relative;
+  left: 150px;
+  margin-top: 0px;
+  padding: 0px;
 }
 
 label {
   margin-top: 20px;
 }
 
+
+.btn.btn-success {
+  margin: 0;
+  position: relative;
+  left: 100px;
+}
+
 .submit-button {
   border-radius:50px;
   margin-top: 15px;
 }
+
+#SiteIdDropdown {
+  border: 2px solid red;
+  border-radius: 25px;
+}
+
 
 .table-headers {
   font-size: 13px;
@@ -76,3 +106,19 @@ label {
   padding-top: 30px;
 
 }
+
+.site-drop-down
+{
+  position: relative;
+  display: block;
+  width: 20.1em;
+	height: 2.7em;
+ 
+}
+
+.site-drop-down-select {
+  border-radius: 25px;
+  height: 100%;
+  width: 100%;
+}
+

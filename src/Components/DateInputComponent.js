@@ -71,18 +71,23 @@ class DateInputComponent extends React.Component {
             <div className="main-container container">      
 
                 <div className="input-group">
-
-                    <label>Start Date: </label>
-                    <div className="input-date-outer" >
-                        <input className="input-date" placeholder='Start Date' type="date"  onChange={this.handleChangeStartDate}></input>
+                    <div className="input-start-date">
+                        <label>Start Date: </label>
+                        <div className="input-date-outer" >
+                            <input className="input-date" placeholder='Start Date' type="date"  onChange={this.handleChangeStartDate}></input>
+                        </div>
                     </div>
-                    <label>End Date: </label>
-                    <div className="input-date-outer">
-                        <input className="input-date" placeholder='End Date' type="date"  onChange={this.handleChangeEndDate}></input>
+                    <div className="input-end-date">
+                        <label>End Date: </label>
+                        <div className="input-date-outer">
+                            <input className="input-date" placeholder='End Date' type="date"  onChange={this.handleChangeEndDate}></input>
+                        </div>
                     </div>
-                    <div className="input-site-outer">
-                        <div className="site-drop-down">
-                            <select className="site-drop-down-select" onChange={this.handleChangeSiteId}>
+                    <div className="input-site">
+                        <label>Site: </label>
+                        <div className="input-site-outer">
+                            <div className="site-drop-down">
+                                <select className="site-drop-down-select" onChange={this.handleChangeSiteId}>
                                     <option value="0"></option>
                                     <option value="1">PCI Rockford</option>
                                     <option value="2">PCI Biotec</option>
@@ -94,7 +99,8 @@ class DateInputComponent extends React.Component {
                                     <option value="11">MTF Production ULCs</option>
                                     <option value="12">Fuji UK</option>
                                     <option value="26">Farrar Marietta RiverCity</option>
-                            </select>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div className="submit-button">
