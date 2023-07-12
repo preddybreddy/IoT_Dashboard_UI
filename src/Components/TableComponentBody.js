@@ -33,7 +33,6 @@ class TableComponentBody extends React.Component {
     
     render() {
         const numDays = this.differenceInDays(this.props.responseObj["startDate"], this.props.responseObj["endDate"])   
-        console.log(numDays )
         let lists = []
         for (let day = 0; day < numDays; day++)
         {

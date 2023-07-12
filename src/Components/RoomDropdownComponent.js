@@ -47,8 +47,7 @@ class RoomDropdownComponent extends React.Component {
                     <select name="SiteID" id="SiteIdDropdown" onChange={this.handleSelectionEvent}>
                         {this.extractRooms(this.props.responseObj)}
                     </select>
-                    <div className="data-table-outer">
-                    
+                    <div className="data-table-outer">                    
                         {table}
                     </div>
                 </div>

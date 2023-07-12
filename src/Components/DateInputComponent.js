@@ -81,19 +81,19 @@ class DateInputComponent extends React.Component {
                         <input className="input-date" placeholder='End Date' type="date"  onChange={this.handleChangeEndDate}></input>
                     </div>
                     <div className="input-site-outer">
-                        <div class="site-drop-down">
-                            <select onChange={this.handleChangeSiteId}>
-                                <option value="0"></option>
-                                <option value="1">PCI Rockford</option>
-                                <option value="2">PCI Biotec</option>
-                                <option value="3">GSK Conshohocken</option>
-                                <option value="4">(Deprecated -- HISTORICAL ONLY) Movianto</option>
-                                <option value="8">MTF</option>
-                                <option value="9">Mcardle Skeath</option>
-                                <option value="10">Movianto Transposed</option>
-                                <option value="11">MTF Production ULCs</option>
-                                <option value="12">Fuji UK</option>
-                                <option value="26">Farrar Marietta RiverCity</option>
+                        <div className="site-drop-down">
+                            <select className="site-drop-down-select" onChange={this.handleChangeSiteId}>
+                                    <option value="0"></option>
+                                    <option value="1">PCI Rockford</option>
+                                    <option value="2">PCI Biotec</option>
+                                    <option value="3">GSK Conshohocken</option>
+                                    <option value="4">(Deprecated -- HISTORICAL ONLY) Movianto</option>
+                                    <option value="8">MTF</option>
+                                    <option value="9">Mcardle Skeath</option>
+                                    <option value="10">Movianto Transposed</option>
+                                    <option value="11">MTF Production ULCs</option>
+                                    <option value="12">Fuji UK</option>
+                                    <option value="26">Farrar Marietta RiverCity</option>
                             </select>
                         </div>
                     </div>
