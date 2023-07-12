@@ -106,7 +106,7 @@ class LineChartComponent extends Component {
 			exportEnabled: true,
 			theme: "light2", // "light1", "dark1", "dark2"
 			title:{
-				text: "Room Data"
+				text: "Graphical Room Data"
 			},
 			axisY: {
 				title: "Temperature",
