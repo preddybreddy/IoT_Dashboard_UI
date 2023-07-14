@@ -13,15 +13,15 @@ class RoomDropdownComponent extends React.Component {
 
     extractRooms(json_response)
     {
-        console.log(json_response)
+        //console.log(json_response)
         const values = json_response.data[0]
         let roomOptions = Object.keys(values)
         // let roomOptions =  values.map(v => <option value={v.Source}>{v.Source}</option>)
         // roomOptions.unshift(<option value=''></option>)
         let htmlroomOptions = roomOptions.map(r => <option value={r}>{r}</option>)
         htmlroomOptions.unshift(<option value=""></option>)
-        console.log('Room options')
-        console.log(htmlroomOptions)
+        //console.log('Room options')
+        //console.log(htmlroomOptions)
         return htmlroomOptions
     }
 
@@ -47,8 +47,7 @@ class RoomDropdownComponent extends React.Component {
                     <select name="SiteID" id="SiteIdDropdown" onChange={this.handleSelectionEvent}>
                         {this.extractRooms(this.props.responseObj)}
                     </select>
-                    <div className="data-table-outer">
-                    
+                    <div className="data-table-outer">                    
                         {table}
                     </div>
                 </div>

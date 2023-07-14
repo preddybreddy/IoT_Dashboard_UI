@@ -34,20 +34,19 @@ class DateInputComponent extends React.Component {
     //Should I be calling the API from the DateInputComponent
     async handleSubmit(event)
     {
-        console.log(this.state.startDate)
-        console.log(this.state.endDate)
-        console.log(this.state.siteId)
+        // console.log(this.state.startDate)
+        // console.log(this.state.endDate)
+        // console.log(this.state.siteId)
         let dashboard_url = `https://localhost:7149/api/Dashboard/sitevalues?startDate=${this.state.startDate}&endDate=${this.state.endDate}&siteId=${this.state.siteId}`
         this.setState(prevState => prevState.loading = true)
         const raw_response = await fetch(dashboard_url)
         const json_response = await raw_response.json()
+        console.log(json_response)
         this.setState(prevState => prevState.responseObj = json_response)
         
         this.setState(prevState => prevState.populateRooms = true)
         this.setState(prevState => prevState.loading = false)
-        console.log(this.state.responseObj)
-        
-        console.log(this.state.populateRooms)
+
         event.preventDefault()
     }
 
@@ -69,32 +68,39 @@ class DateInputComponent extends React.Component {
             loadingComponent = null
         }
         return (
-            <div className="main-container">      
-                <div className="input-group">
+            <div className="main-container container">      
 
-                    <label>Start Date: </label>
-                    <div className="input-date-outer" >
-                        <input className="input-date" placeholder='Start Date' type="date"  onChange={this.handleChangeStartDate}></input>
+                <div className="input-group">
+                    <div className="input-start-date">
+                        <label>Start Date: </label>
+                        <div className="input-date-outer" >
+                            <input className="input-date" placeholder='Start Date' type="date"  onChange={this.handleChangeStartDate}></input>
+                        </div>
                     </div>
-                    <label>End Date: </label>
-                    <div className="input-date-outer">
-                        <input className="input-date" placeholder='End Date' type="date"  onChange={this.handleChangeEndDate}></input>
+                    <div className="input-end-date">
+                        <label>End Date: </label>
+                        <div className="input-date-outer">
+                            <input className="input-date" placeholder='End Date' type="date"  onChange={this.handleChangeEndDate}></input>
+                        </div>
                     </div>
-                    <div className="input-site-outer">
-                        <div class="site-drop-down">
-                            <select onChange={this.handleChangeSiteId}>
-                                <option value="0"></option>
-                                <option value="1">PCI Rockford</option>
-                                <option value="2">PCI Biotec</option>
-                                <option value="3">GSK Conshohocken</option>
-                                <option value="4">(Deprecated -- HISTORICAL ONLY) Movianto</option>
-                                <option value="8">MTF</option>
-                                <option value="9">Mcardle Skeath</option>
-                                <option value="10">Movianto Transposed</option>
-                                <option value="11">MTF Production ULCs</option>
-                                <option value="12">Fuji UK</option>
-                                <option value="26">Farrar Marietta RiverCity</option>
-                            </select>
+                    <div className="input-site">
+                        <label>Site: </label>
+                        <div className="input-site-outer">
+                            <div className="site-drop-down">
+                                <select className="site-drop-down-select" onChange={this.handleChangeSiteId}>
+                                    <option value="0"></option>
+                                    <option value="1">PCI Rockford</option>
+                                    <option value="2">PCI Biotec</option>
+                                    <option value="3">GSK Conshohocken</option>
+                                    <option value="4">(Deprecated -- HISTORICAL ONLY) Movianto</option>
+                                    <option value="8">MTF</option>
+                                    <option value="9">Mcardle Skeath</option>
+                                    <option value="10">Movianto Transposed</option>
+                                    <option value="11">MTF Production ULCs</option>
+                                    <option value="12">Fuji UK</option>
+                                    <option value="26">Farrar Marietta RiverCity</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div className="submit-button">
