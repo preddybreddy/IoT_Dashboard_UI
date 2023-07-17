@@ -37,7 +37,8 @@ class DateInputComponent extends React.Component {
         // console.log(this.state.startDate)
         // console.log(this.state.endDate)
         // console.log(this.state.siteId)
-        let dashboard_url = `https://localhost:7149/api/Dashboard/sitevalues?startDate=${this.state.startDate}&endDate=${this.state.endDate}&siteId=${this.state.siteId}`
+        //let dashboard_url = `https://localhost:7149/api/Dashboard/sitevalues?startDate=${this.state.startDate}&endDate=${this.state.endDate}&siteId=${this.state.siteId}`
+        let dashboard_url = `https://dashboardapi20230627143908-v2.azurewebsites.net/api/Dashboard/sitevalues?startDate=${this.state.startDate}&endDate=${this.state.endDate}&siteId=${this.state.siteId}`
         this.setState(prevState => prevState.loading = true)
         const raw_response = await fetch(dashboard_url)
         const json_response = await raw_response.json()
