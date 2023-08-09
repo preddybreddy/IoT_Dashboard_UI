@@ -1,5 +1,6 @@
 import React from "react";
 import TableComponentMain from './TableComponentMain';
+import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 class RoomDropdownComponent extends React.Component {
     constructor(props)
@@ -13,23 +14,18 @@ class RoomDropdownComponent extends React.Component {
 
     extractRooms(json_response)
     {
-        //console.log(json_response)
-        const values = json_response.data[0]
-        let roomOptions = Object.keys(values)
-        // let roomOptions =  values.map(v => <option value={v.Source}>{v.Source}</option>)
-        // roomOptions.unshift(<option value=''></option>)
-        let htmlroomOptions = roomOptions.map(r => <option value={r}>{r}</option>)
-        htmlroomOptions.unshift(<option value=""></option>)
-        //console.log('Room options')
-        //console.log(htmlroomOptions)
-        return htmlroomOptions
+       const roomOptions =  Object.keys(json_response.reportNamesForEachSource)
+       let roomOptionsHTML = roomOptions.map((v, _i) => <option value={_i}>{v}</option>)
+       roomOptionsHTML.unshift(<option value=''></option>)
+       console.log('extractRooms() in RoomDropDownComponent', roomOptionsHTML)
+       
+       return roomOptionsHTML
     }
 
     handleSelectionEvent(e)
     {
         this.setState({room: e.target.value})
         this.showTable = true
-
     }
 
 
@@ -46,6 +42,7 @@ class RoomDropdownComponent extends React.Component {
                     <label for="SiteID: ">Rooms: </label>
                     <select name="SiteID" id="SiteIdDropdown" onChange={this.handleSelectionEvent}>
                         {this.extractRooms(this.props.responseObj)}
+                        <h1>Room {this.state.room}</h1>
                     </select>
                     <div className="data-table-outer">                    
                         {table}
