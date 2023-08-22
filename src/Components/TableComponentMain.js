@@ -11,12 +11,11 @@ class TableComponentMain extends React.Component {
 
     extractReportNamesForSource()
     {
-        const source = this.props.room
-        const data_for_one_day = this.props.responseObj.data[0]
-        const roomResponse = data_for_one_day[source]
-        let reportNamesForRoom = Object.keys(roomResponse)
-        return reportNamesForRoom
-
+        //this.props.room is the room index from 0 ... n
+        // sourceName converts the number into the source string
+        const sourceName = Object.keys(this.props.responseObj.reportNamesForEachSource)[this.props.room]
+        let reportNamesForSource = this.props.responseObj.reportNamesForEachSource[sourceName]
+        return reportNamesForSource
     }
 
     render() {
@@ -30,11 +29,6 @@ class TableComponentMain extends React.Component {
             </div>
         )
     }
-    //<TableComponentBody responseObj={this.props.responseObj} tableHeaders={this.extractRoomDataKeys()} room={this.props.room}/>
-   
 }
 
 export default TableComponentMain 
-
-// <TableComponentBody responseObj={this.props.responseObj} tableHeaders={this.extractReportNamesForSource()} room={this.props.room}/>
-//<LineChartComponent responseObj={this.props.responseObj} data={this.props.responseObj.data} room={this.props.room} tableHeaders={this.extractReportNamesForSource()} />

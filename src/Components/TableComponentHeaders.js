@@ -11,7 +11,7 @@ class TableComponentHeaders extends React.Component {
 
     render()    
     {
-        const includedProperties = this.props.tableHeaders
+        const includedProperties = this.props.tableHeaders.reverse()
         return  <thead><tr><th className="table-headers">Date</th>{includedProperties.map(i => <th className="table-headers">{i}</th>)}</tr></thead>
 
     }

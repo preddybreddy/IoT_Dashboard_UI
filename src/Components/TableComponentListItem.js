@@ -20,20 +20,20 @@ class TableComponentListItem extends React.Component {
         
         const day = this.props.day
         const dataForDay = this.props.responseObj.data[day]
-        //console.log(dataForDay)
-        const sourceData = dataForDay[this.props.room]
-        //console.log('Source data')
-        //console.log(sourceData)
-        const headers = Object.keys(sourceData)
+        /*this.props.room is the string representation of the room e.x "480A1", "480A2"...
+         * the string rep needs to be converted into a 0 based index to located the correct source subarray within the day subarray
+        */
+        const sourceIndexToSourceNameMapping = Object.keys(this.props.responseObj.reportNamesForEachSource)[this.props.room]
+        const sourceDataArray = dataForDay[this.props.room]
+        const headers = this.props.responseObj.reportNamesForEachSource[sourceIndexToSourceNameMapping]
         let temp_arr = []
-        //console.log(this.props.responseObj)
-        for (let prop = 0; prop < headers.length; prop++)
+        for (let prop = headers.length - 1; prop >= 0; prop--)
         {
-            temp_arr.push(sourceData[headers[prop]])
+            temp_arr.push(sourceDataArray[prop])
         }
         //return temp_arr.map(x => <td className="table-element">{x}</td>)
         return temp_arr.map(x => {
-            if (x === 'null')
+            if (x === "null")
             {
                 return <td className="table-element light-red">{x}</td>
             }

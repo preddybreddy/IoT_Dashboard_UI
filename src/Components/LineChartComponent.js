@@ -18,27 +18,21 @@ class LineChartComponent extends Component {
         let dataPoints = []
         const data = this.props.data
         const room = this.props.room
-        console.log('Room from LineChartComponent', room)
-        const headers = this.props.tableHeaders
-        const roomData = data.map(x => x[room])
-        for (let i=0; i < headers.length; i++)
+        const lenReportValues = data[0][room].length
+        for (let i=0; i < lenReportValues; i++)
         {
             dataPoints.push([])
         }
 
-        for (let i = 0; i < roomData.length; i++)
+        for (let i = 0; i < data.length; i++)
         {
-            const roomDataForDay = roomData[i]
-            for (let j = 0; j < headers.length; j++)
+            const dataForOneDay = data[i]
+            const roomData = dataForOneDay[room]
+            for (let j = 0; j < roomData.length; j++)
             {
-                const dataPointValue = roomDataForDay[headers[j]]
-                let transformedDataPointValue = 0
-                if (dataPointValue !== "null")
-                {
-                    transformedDataPointValue = Number(dataPointValue)
-                }
-                dataPoints[j].push(transformedDataPointValue)
+                dataPoints[j].push(Number(roomData[j]))
             }
+
         }
         return dataPoints
         
@@ -67,8 +61,6 @@ class LineChartComponent extends Component {
 
     formObjectForCanvasDataPoints(reportIndex)
     {
-        // console.log('This.dataPointsAll')
-        // console.log(this.datePointsAll[0])
         const dataPointsForReport = this.dataPointsAll[reportIndex]
         let dataPointObjectsForCanvas = []
         for (let i = 0; i < this.dates.length; i++)
@@ -86,7 +78,6 @@ class LineChartComponent extends Component {
     render() {
         this.dates = this.extractDates() 
         this.dataPointsAll = this.extractDataPointsForReports()
-        console.log('Room changed from LineChartComponent', this.props.room)
         let dataArray = []
         for (let i = 0; i < this.props.tableHeaders.length; i++)
         {
@@ -100,6 +91,7 @@ class LineChartComponent extends Component {
                     dataPoints: this.formObjectForCanvasDataPoints(i)
                 }
             )
+            
         }
        const options = {
 			animationEnabled: true,
@@ -111,25 +103,11 @@ class LineChartComponent extends Component {
 			axisY: {
 				title: "Temperature",
 				includeZero: false,
-				//suffix: "%"
 			},
 			axisX: {
 				title: "Date",
-				//prefix: "W",
 				interval: 1
 			},
-			// data: [
-            //     {
-            //         type: "line",
-            //         toolTipContent: "Day {x}: {y}%",
-            //         dataPoints: this.formObjectForCanvasDataPoints(0)
-            //     },
-            //     {
-            //         type: "line",
-            //         toolTipContent: "Day {x}: {y}%",
-            //         dataPoints: this.formObjectForCanvasDataPoints(1)
-            //     }
-            // ]
             data: dataArray
 		}
 		
