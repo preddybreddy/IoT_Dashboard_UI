@@ -2,6 +2,7 @@ import React from "react";
 import RoomDropdownComponent from "./RoomDropdownComponent";
 import LoadingComponent from "./LoadingComponent";
 import DateEditMessage from "./DateEditMessageComponent";
+import logo from '../farrar_logo.png';
 
 
 class DateInputComponent extends React.Component {
@@ -91,7 +92,8 @@ class DateInputComponent extends React.Component {
             dateEditMessage = <DateEditMessage />
         }
         return (
-            <div className="main-container container">      
+            <div className="main-container container">   
+                <img src={logo} alt="Farrar Logo" width="250px" height="25px" class='farrar-logo' />
                 {dateEditMessage}
                 <div className="input-group">
                     <div className="input-start-date">
@@ -139,6 +141,9 @@ class DateInputComponent extends React.Component {
                 {loadingComponent}
                 
                 {roomsDropDown}
+                <footer class="footer">
+                    &copy;2023 <em>Farrar Scientific</em> - Site Report Generator
+                </footer>
             </div>
         )
     }
